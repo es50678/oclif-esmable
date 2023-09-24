@@ -1,0 +1,73 @@
+{
+  "name": "oclif-hello-world-esm",
+  "description": "oclif example Hello World CLI (ESM)",
+  "version": "0.3.0",
+  "author": "Salesforce",
+  "bin": {
+    "oex": "./bin/run.js"
+  },
+  "bugs": "https://github.com/oclif/hello-world-esm/issues",
+  "dependencies": {
+    "@oclif/core": "^3.0.0-beta.13",
+    "@oclif/plugin-help": "^5",
+    "@oclif/plugin-plugins": "^3.7.0"
+  },
+  "devDependencies": {
+    "@oclif/test": "^2.5.4",
+    "@types/chai": "^4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^18",
+    "chai": "^4",
+    "eslint": "^8",
+    "eslint-config-oclif": "^5",
+    "eslint-config-oclif-typescript": "^2",
+    "mocha": "^9",
+    "oclif": "^3.16.0",
+    "shx": "^0.3.4",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.6.2",
+    "typescript": "^4.9.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "/bin",
+    "/dist",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/oclif/hello-world-esm",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "oclif": {
+    "bin": "oex",
+    "dirname": "oex",
+    "commands": "./dist/commands",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins"
+    ],
+    "topicSeparator": " ",
+    "topics": {
+      "hello": {
+        "description": "Say hello to the world and others"
+      }
+    }
+  },
+  "repository": "oclif/hello-world",
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b",
+    "lint": "eslint . --ext .ts --config .eslintrc",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "posttest": "yarn lint",
+    "prepack": "yarn build && oclif manifest && oclif readme",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif readme && git add README.md"
+  },
+  "types": "dist/index.d.ts",
+  "exports": "./lib/index.js",
+  "type": "module"
+}
